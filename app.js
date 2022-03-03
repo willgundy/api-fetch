@@ -1,5 +1,5 @@
 // import functions
-import { getPokedex, getDarkSided } from './fetch.js';
+import { getPokedex, theForce } from './fetch.js';
 
 // grab DOM elements
 const template = document.querySelector('#template');
@@ -26,6 +26,24 @@ async function loadPokedex() {
 
         list.appendChild(clone);
 
+    }
+
+}
+
+async function useTheForce() {
+    const peopleInStarWars = await theForce;
+
+    for (let character of peopleInStarWars) {
+        console.log(character);
+
+        const clone = template.textContent.cloneNode(true);
+        const name = clone.querySelector('h2');
+        const type = clone.querySelector('h6');
+
+        name.textContent = 'Name: ' + character.name;
+        type.textContent = 'Gender: ' + character.gender;
+
+        list.appendChild(clone);
     }
 
 }

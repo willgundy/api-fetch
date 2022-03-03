@@ -9,7 +9,7 @@ export async function getPokedex() {
     return jsonResponse.results;
 }
 
-export async function getDarkSided() {
+export async function theForce() {
     let url = 'https://swapi.dev/api/people';
 
     const response = await fetch(url);
