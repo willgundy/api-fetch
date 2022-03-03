@@ -1,4 +1,5 @@
 // import functions
+import { getPokedex, getDarkSided } from './fetch.js';
 
 // grab DOM elements
 const template = document.querySelector('#template');
@@ -7,7 +8,27 @@ const list = document.querySelector('#list');
 
 //console.log(template, selector, list);
 
+async function loadPokedex() {
+    const pokedex = await getPokedex;
 
+    for (let pokemon of pokedex) {
+        console.log(pokemon);
+
+        const clone = template.textContent.cloneNode(true);
+        const name = clone.querySelector('h2');
+        const type = clone.querySelector('h6');
+        const image = clone.querySelector('img');
+
+        name.textContent = 'Name: ' + pokemon.pokemon;
+        type.textContent = 'Egg: ' + pokemon.egg_group1;
+        image.src = pokemon.url_image;
+        image.alt = pokemon.pokedex;
+
+        list.appendChild(clone);
+
+    }
+
+}
 
 // set event listeners 
     // get user input

@@ -1,5 +1,5 @@
 //file to fetch information from APIs for the page
-export async function pokedex() {
+export async function getPokedex() {
     let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 
     const response = await fetch(url);
